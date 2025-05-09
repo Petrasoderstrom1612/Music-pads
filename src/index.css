@@ -29,6 +29,14 @@ button {
     
 }
 
+.alltoglerer{
+    margin-top: 20px;
+    color:black !important;
+    opacity: 1;
+    height:50px;
+    border:1px solid black;
+}
+
 .on{
     opacity: 1;
     border:1px solid black;

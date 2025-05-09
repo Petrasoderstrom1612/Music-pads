@@ -15,14 +15,22 @@ function App() {
       })
   }
 
+  const allToggler = () => {
+    console.log("all")
+    setButtons(prevButtons => prevButtons.map(oneBtn => {return {...oneBtn, on:false}}))
+  }
+
   const allButtons = buttons.map(oneButton => <Button key={oneButton.id} id={oneButton.id} on={oneButton.on} color={oneButton.color} switcher={switcher} />) //key stays in parent as it is not a prop
 
   return (
-    <main>
-            <div className="pad-container">
-                {allButtons}
-            </div>
-        </main>
+    <>
+      <main>
+        <div className="pad-container">
+            {allButtons}
+        </div>
+      </main>
+      <button className="alltoglerer" onClick={allToggler}>Toggle all</button>
+    </>
   )
 }
 
