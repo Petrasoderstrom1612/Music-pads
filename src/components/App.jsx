@@ -4,6 +4,7 @@ import Button from './Button'
 
 function App() {
   console.log(pads)
+  const [dark, setDark] = React.useState(false)
   const [buttons, setButtons] = React.useState(pads)
    // variable name                         //real value  
 
@@ -25,9 +26,17 @@ function App() {
 
   const allButtons = buttons.map(oneButton => <Button key={oneButton.id} id={oneButton.id} on={oneButton.on} color={oneButton.color} switcher={switcher} />) //key stays in parent as it is not a prop
 
+  const darkModer = () => {
+    console.log("hi")
+    setDark(prevDark => !prevDark)
+  }
+
   return (
     <>
-      <main>
+      <div className="toggle-container">
+        <button className="toggle-button" onClick={darkModer} style={{backgroundColor : dark ? "#999999" : undefined}}></button>
+      </div>
+      <main className={dark ? "dark" : ""}>
         <div className="pad-container">
             {allButtons}
         </div>
