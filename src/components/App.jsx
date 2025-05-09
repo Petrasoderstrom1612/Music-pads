@@ -17,8 +17,11 @@ function App() {
 
   const allToggler = () => {
     console.log("all")
-    setButtons(prevButtons => prevButtons.map(oneBtn => {return {...oneBtn, on:false}})) //you need to do the change on every single button, loop through each
-  }
+    setButtons(prevButtons => {
+      const allOff = prevButtons.every(btn => btn.on === false)     //you need to do the change on every single button, loop through each
+      return prevButtons.map(oneBtn => {return {...oneBtn, on: allOff ? true : false}})     //you need to do the change on every single button, loop through each
+    })
+    }
 
   const allButtons = buttons.map(oneButton => <Button key={oneButton.id} id={oneButton.id} on={oneButton.on} color={oneButton.color} switcher={switcher} />) //key stays in parent as it is not a prop
 
