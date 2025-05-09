@@ -6,7 +6,7 @@ const Button = (props) => {
     <button 
     onClick={() => props.switcher(props.id)}
     style={{backgroundColor: props.color}}
-    className={props.on ? "on" : ""}
+    className={props.on ? "on" : undefined}
     ></button>
   )
 }
